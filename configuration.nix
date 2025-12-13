@@ -16,7 +16,6 @@
   # --- System packages ---
   environment.systemPackages = with pkgs; [
     screen
-    tmux
     htop
     gtop
     git
