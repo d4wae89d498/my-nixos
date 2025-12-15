@@ -42,8 +42,8 @@
         autocmd vimenter * ++nested colorscheme gruvbox
         set background=dark
 
-        " NERDTree toggle
-        nnoremap <C-b> :NERDTreeToggle<CR>
+        " Ctrl +b open left explorer
+        nnoremap <C-B> :Lexplore<CR>:vertical resize 30<CR>
 
         " Windows copy from visual mode
         vnoremap <RightMouse> "+y
@@ -53,10 +53,6 @@
         nnoremap <leader>fg :GFiles<CR>
         nnoremap <leader>fb :Buffers<CR>
         nnoremap <leader>fh :Helptags<CR>
-
-        " --- Airline ---
-        let g:airline_theme='gruvbox'
-        let g:airline_powerline_fonts = 0
 
         " Windows trick for cursors
         set guicursor=
@@ -69,11 +65,10 @@
       '';
       vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
-          nerdtree
           fzf-vim
           gruvbox
-          vim-airline
-          vim-airline-themes
+          #vim-airline
+          #vim-airline-themes
         ];
         opt = [];
       };
@@ -124,7 +119,7 @@
       bindkey ^[[1;5D prev      # Ctrl-Left
 
       # Fix CTRL A / E
-      escape ^Bb               # Ctrl-B as prefix
+      escape ^Gg               # Ctrl-B as prefix
       bind a stuff "^A"        # Ctrl-A A sends literal Ctrl-A
       bind e stuff "^E"        # Ctrl-A E sends literal Ctrl-E
 
